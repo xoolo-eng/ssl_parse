@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Все сертефикаты</title>
+{% endblock title %}
+{% block style %}{% endblock style %}
+{% block view %}
+<section>
+    <h1>Сертификаты</h1>
+    {% if certs|length == 0 %}
+    <p>Не найдено ни одного сертификата, для загрузки перейдите по ссылке.</p>
+    <a href="{% url 'load_ssl:load_ssl' %}">Загрузить</a>
+    <a href="{% url 'load_ssl:load_ssl_sql' %}">Загрузить No ORM</a>
+    {% else %}
+    <a href="{% url 'load_ssl:load_ssl' %}">Загрузить</a>
+    <a href="{% url 'load_ssl:load_ssl_sql' %}">Загрузить No ORM</a>
+    <ul>
+        {% for cert in certs %}
+        <li>
+            <h2><a href="{% url 'view_ssl:one_ssl' cert.id %}">{{ cert.name }}</a></h2>
+            <h2><a href="{% url 'view_ssl:one_ssl_sql' cert.id %}">{{ cert.name }}</a> No ORM</h2>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</section>
+{% endblock view %}
+{% block script %}{% endblock script %}
+

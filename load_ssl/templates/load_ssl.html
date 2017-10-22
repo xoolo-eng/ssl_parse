@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Загрузка сертификата</title>
+{% endblock title %}
+{% block style %}{% endblock style %}
+{% block load_cert %}
+<h1>Загрузка сертифката</h1>
+<form method="POST" action enctype="multipart/form-data">
+    {{ form.non_field_errors }}
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" name="Edit" vaule="Загрузить">
+</form>
+{% endblock load_cert %}
+{% block script %}{% endblock script %}

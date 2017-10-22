@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Удалить cертификат {{ cert.name }}</title>
+{% endblock title %}
+{% block style %}{% endblock style %}
+{% block cert %}
+<h1>Информация о сертификате "{{ cert.name }}"</h1>
+{% if cert.serial_number != None %}
+<p><span>Серийный номер: </span>{{ cert.serial_number}}</p>
+{% endif %}
+{% if cert.ogrn != None %}
+<p><span>ОГРН: </span>{{ cert.ogrn}}</p>
+{% endif %}
+{% if cert.inn != None %}
+<p><span>ИНН: </span>{{ cert.inn}}</p>
+{% endif %}
+{% if cert.snils != None %}
+<p><span>СНИЛС: </span>{{ cert.snils}}</p>
+{% endif %}
+{% if cert.ogrnip != None %}
+<p><span>ОГРНИП: </span>{{ cert.ogrnip}}</p>
+{% endif %}
+{% if cert.organization_name != None %}
+<p><span>Организация: </span>{{ cert.organization_name}}</p>
+{% endif %}
+{% if cert.street_address != None %}
+<p><span>Адрес: </span>{{ cert.street_address}}</p>
+{% endif %}
+{% if cert.locality_name != None %}
+<p><span>Местоположение: </span>{{ cert.locality_name}}</p>
+{% endif %}
+{% if cert.state_or_province_name != None %}
+<p><span>Регион: </span>{{ cert.state_or_province_name}}</p>
+{% endif %}
+{% if cert.country_name != None %}
+<p><span>Страна: </span>{{ cert.country_name}}</p>
+{% endif %}
+{% if cert.given_name != None %}
+<p><span>Имя, Отчество: </span>{{ cert.given_name}}</p>
+{% endif %}
+{% if cert.surname != None %}
+<p><span>Фамилия: </span>{{ cert.surname}}</p>
+{% endif %}
+{% if cert.common_name != None %}
+<p><span>Название: </span>{{ cert.common_name}}</p>
+{% endif %}
+{% if cert.email_address != None %}
+<p><span>Электронный адрес: </span>{{ cert.email_address}}</p>
+{% endif %}
+<form method="POST" action>
+    {% csrf_token %}
+    <input type="submit" name="Yes" value="Удалить">
+</form>
+<form method="POST" action>
+    {% csrf_token %}
+    <input type="submit" name="No" value="Отмена">
+</form>
+{% endblock cert %}
+{% block script %}{% endblock script %}

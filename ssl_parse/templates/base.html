@@ -1,0 +1,16 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    {% block title %}{% endblock title %}
+    <link rel="stylesheet" type="text/css" href="{% static 'ssl_parse/css/base.css' %}">
+    {% block style %}{% endblock style %}
+</head>
+<body>
+{% block view %}{% endblock view %}
+{% block cert %}{% endblock cert %}
+{% block load_cert %}{% endblock load_cert %}
+</body>
+<scrip src="{% static 'ssl_parse/js/base.js' %}"></script>
+{% block script %}{% endblock script %}
+</html>
